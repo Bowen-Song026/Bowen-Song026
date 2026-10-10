@@ -1,13 +1,13 @@
 # Bowen Song
 
-Diffusion model learner & experimenter. I train, ablate, and benchmark generative models end-to-end on consumer-grade hardware.
+Diffusion model experimenter and LLM-tooling engineer. I train, ablate, and benchmark generative models on consumer hardware, and build production-grade tools around LLM APIs.
 
 ## About Me
 
 - Currently deep-diving into **diffusion probabilistic models**: DDPM, Score-based SDE, and Latent Diffusion
-- Participant of the **Huawei Cup China Post-Graduate Mathematical Contest in Modeling** (Problem E: multimodal sentiment recognition in complex scenarios)
 - All experiments run on an **NVIDIA RTX 3050 Laptop GPU (4 GB VRAM)** — every project below includes OOM-aware engineering: gradient accumulation, mixed precision, watchdogs, and auto-restart tooling
-- Stack: **Python / PyTorch / Windows**
+- I also build **LLM-powered engineering tools** with a focus on token efficiency, caching, and fault tolerance
+- Stack: **Python / PyTorch / PyMuPDF / Windows**
 
 ## Portfolio: Diffusion Models, Three Paradigms
 
@@ -27,12 +27,17 @@ I implemented and benchmarked three families of diffusion generative models on t
 - VESDE converges better than VPSDE / sub-VPSDE on small-scale image generation in my runs
 - Built a self-healing experiment runner (watchdog + OOM guard + structured logging) that survived multi-day unattended parameter sweeps
 
-## Currently Learning
+## Portfolio: LLM Engineering Tools
 
-- Score matching and probability-flow ODE theory
-- Guided sampling and controllable generation
-- Applying diffusion models to the multimodal emotion recognition task (math-modeling Problem E)
+| Repo | What It Does |
+|---|---|
+| [mineru-pdf-translate](https://github.com/Bowen-Song026/mineru-pdf-translate) | Layout-preserving academic PDF translation (English -> Chinese). Vector-perfect output: formulas, figures, and tables are never re-flowed; bold/italic font styles are reproduced. A batched LLM protocol packs up to 15 segments per request, cutting system-prompt overhead by **~85%** and total token cost by **60-66%**; a SHA-1 content-addressed cache makes interrupted runs resume for free and re-renders cost **zero tokens**. |
+
+## In Research
+
+- **Flow Q-Learning / SAQ-Flow** — current research direction
+- Applying diffusion/flow models to multimodal emotion recognition in complex scenarios
 
 ## Notes
 
-All three repos keep their upstream projects credited (see each repo's `UPSTREAM_README.md` / License section). Experiment artifacts (datasets, checkpoints, generated images) are gitignored — code, configs, and analysis tooling are what get versioned.
+All repos keep their upstream projects credited (see each repo's `UPSTREAM_README.md` / License section). Experiment artifacts (datasets, checkpoints, generated images) are gitignored — code, configs, and analysis tooling are what get versioned.
